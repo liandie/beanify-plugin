@@ -18,5 +18,6 @@ let plugin =beanifyPlugin((beanify,opts,done)=>{
 
 let isScoped=plugin[beanifyPlugin.pluginScoped]
 let meta=plugin[beanifyPlugin.pluginMeta]
+let prefix=plugin[beanifyPlugin.pluginPrefix]
 
 ```

@@ -2,6 +2,7 @@ const semver = require("semver")
 
 const pluginScoped = Symbol.for("plugin-scoped");
 const pluginMeta = Symbol.for("plugin-meta")
+const pluginPrefix=Symbol.for("plugin-prefix")
 
 const stackTracePattern = /at\s{1}(?:.*\.)?BeanifyPlugin\s{1}.*\n\s*(.*)/
 const fileNamePattern = /(\w*(\.\w*)*)\..*/
@@ -72,6 +73,13 @@ const BeanifyPlugin = (fn, opts = {}) => {
         delete opts.beanify
     }
 
+    if(opts.prefix&&typeof opts.prefix === "string"){
+        fn[pluginPrefix]=opts.prefix;
+        delete opts.prefix
+    }else{
+        fn[pluginPrefix]='';
+    }
+
     fn[pluginMeta] = opts
 
     return fn
@@ -80,4 +88,5 @@ const BeanifyPlugin = (fn, opts = {}) => {
 module.exports = BeanifyPlugin
 module.exports.pluginScoped = pluginScoped
 module.exports.pluginMeta = pluginMeta
+module.exports.pluginPrefix=pluginPrefix
 
