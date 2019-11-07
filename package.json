@@ -1,0 +1,24 @@
+{
+  "name": "beanify-plugin",
+  "version": "1.0.0",
+  "description": "beanify plugin ",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.test.js --100 --cov --coverage-report=text",
+    "unit": "tap test/*.test.js --100 --cov --coverage-report=lcov"
+  },
+  "keywords": [
+    "beanify",
+    "micro-services",
+    "nats-microservices"
+  ],
+  "author": "beanjs",
+  "license": "MIT",
+  "devDependencies": {
+    "tap": "^14.9.2"
+  },
+  "dependencies": {
+    "semver": "^6.3.0"
+  },
+  "typings": "./index.d.ts"
+}
