@@ -11,10 +11,12 @@ npm install beanify-plugin
 ```
 const beanifyPlugin=require('beanify-plugin')
 
-module.exports=beanifyPlugin((beanify,opts,done)=>{
+let plugin =beanifyPlugin((beanify,opts,done)=>{
 
     done()
 })
 
+let isScoped=plugin[beanifyPlugin.pluginScoped]
+let meta=plugin[beanifyPlugin.pluginMeta]
 
 ```

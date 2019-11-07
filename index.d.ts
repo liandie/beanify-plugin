@@ -5,13 +5,10 @@ import Beanify from "beanify"
 declare namespace BeanifyPlugin {
     interface BeanifyFunction {
         (
-            beanify:Beanify,
-            opts:object,
-            done:(err?:Error)=>void
-        ):void,
-
-        pluginScoped:Symbol,
-        pluginMeta:Symbol
+            beanify: Beanify,
+            opts: object,
+            done: (err?: Error) => void
+        ): void,
     }
 }
 
@@ -24,8 +21,11 @@ declare function BeanifyPlugin(
     opts?: object
 ): BeanifyPlugin.BeanifyFunction;
 
+export const pluginScoped: Symbol;
+export const pluginMeta: Symbol;
 
 export = BeanifyPlugin
+
 
 
 
