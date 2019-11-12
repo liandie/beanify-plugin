@@ -12,10 +12,13 @@ declare namespace BeanifyPlugin {
     }
 
     interface BeanifyPluginMeta {
-        name?: string,
+        prefix?:string,
         scoped?: boolean,
+        name?: string,
         beanify?:string,
-        prefix?:string
+        dependencies?:Array<string>,
+        decorators?:Array<string>,
+        options?:any
     }
 }
 

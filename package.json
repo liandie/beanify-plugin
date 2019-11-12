@@ -1,6 +1,6 @@
 {
   "name": "beanify-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "beanify plugin ",
   "main": "index.js",
   "scripts": {
