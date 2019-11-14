@@ -33,12 +33,6 @@ const checkName = (fn) => {
         throw new Error('anonymous function')
     } catch (e) {
         const m = e.stack.match(stackTracePattern);
-        console.log({
-            m:m[1]
-            .split(/[/\\]/)
-            .slice(-1)[0]
-            .match(fileNamePattern)
-        })
         if (m) {
             return m[1]
                 .split(/[/\\]/)
