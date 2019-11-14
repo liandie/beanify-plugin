@@ -5,7 +5,7 @@ const pluginMeta = Symbol.for("plugin-meta")
 const pluginPrefix=Symbol.for("plugin-prefix")
 
 const stackTracePattern = /at\s{1}(?:.*\.)?BeanifyPlugin\s{1}.*\n\s*(.*)/
-const fileNamePattern = /(\w*-\w*(\.\w*)*)\..*|\w*(\.\w*)*\..*/ ///(\w*(\.\w*)*)\..*/
+const fileNamePattern = /((\w*-\w*)|(\w*)(\.\w*)*)\..*/  ///(\w*-\w*(\.\w*)*)\..*|\w*(\.\w*)*\..*/ ///(\w*(\.\w*)*)\..*/
 
 const checkVersion = (ver) => {
     if (typeof ver !== "string") {
@@ -33,6 +33,12 @@ const checkName = (fn) => {
         throw new Error('anonymous function')
     } catch (e) {
         const m = e.stack.match(stackTracePattern);
+        console.log({
+            m:m[1]
+            .split(/[/\\]/)
+            .slice(-1)[0]
+            .match(fileNamePattern)
+        })
         if (m) {
             return m[1]
                 .split(/[/\\]/)
