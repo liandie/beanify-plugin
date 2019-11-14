@@ -5,7 +5,7 @@ const pluginMeta = Symbol.for("plugin-meta")
 const pluginPrefix=Symbol.for("plugin-prefix")
 
 const stackTracePattern = /at\s{1}(?:.*\.)?BeanifyPlugin\s{1}.*\n\s*(.*)/
-const fileNamePattern = /(\w*(\.\w*)*)\..*/
+const fileNamePattern = /(\w*-\w*(\.\w*)*)\..*|\w*(\.\w*)*\..*/ ///(\w*(\.\w*)*)\..*/
 
 const checkVersion = (ver) => {
     if (typeof ver !== "string") {
