@@ -7,8 +7,8 @@ const pluginPrefix=Symbol.for("plugin-prefix")
 const stackTracePattern = /at\s{1}(?:.*\.)?BeanifyPlugin\s{1}.*\n\s*(.*)/
 const fileNamePattern = /((\w*-\w*)|(\w*)(\.\w*)*)\..*/  ///(\w*-\w*(\.\w*)*)\..*|\w*(\.\w*)*\..*/ ///(\w*(\.\w*)*)\..*/
 
-const checkVersion = (ver) => {
-    if (typeof ver !== "string") {
+const checkVersion = (version) => {
+    if (typeof version !== "string") {
         throw new TypeError(`beanify-plugin expects a version string, instead got '${typeof version}'`)
     }
 
@@ -19,7 +19,7 @@ const checkVersion = (ver) => {
         console.log("beanify not found,proceeding anyway")
     }
 
-    if (beanifyVersion && !semver.satisfies(beanifyVersion, ver)) {
+    if (beanifyVersion && !semver.satisfies(beanifyVersion, version)) {
         throw new Error(`beanify-plugin - expected '${version}' beanify version, '${beanifyVersion}' is installed`)
     }
 }
